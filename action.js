@@ -1,4 +1,6 @@
 const choices = ["rock", "paper", "scissor"];
+let humanScore = 0;
+let computerScore = 0;
 
 
 function getComputerChoice()
@@ -17,55 +19,72 @@ function getHumanChoice()
     return humanChoice;
 }
 
-function playGame()
-{
-    let humanScore = 0;
-    let computerScore = 0;
+// function playGame()
+// {
+//     let humanScore = 0;
+//     let computerScore = 0;
 
-    function playRound(humanChoice, computerChoice)
-    {
-        let hc = humanChoice();
-        let cc = computerChoice();
     
-        if(hc === cc)
-        {
-            console.log(`Draw! computer: ${cc} and your choice: ${hc}`);
-        }
-        else if((hc === choices[0] || hc === choices[2]) && (cc === choices[0] || cc === choices[2]))
-        {
-            if (choices.indexOf(hc) > choices.indexOf(cc))
-            {
-                console.log(`You lose! ${cc} beats ${hc}.`);
-                computerScore += 1;
-            }else
-            {
-                console.log(`You win! ${hc} beats ${cc}`);
-                humanScore += 1;
-            }
-        } 
-        else
-        {
-            if (choices.indexOf(hc) < choices.indexOf(cc))
-            {
-                console.log(`You lose! ${cc} beats ${hc}.`);
-                computerScore += 1;
-            }else
-            {
-                console.log(`You win! ${hc} beats ${cc}`);
-                humanScore += 1;
-            }
-        }
-    }
 
-    for (let curRound = 1; curRound <= 5; curRound++)
+//     for (let curRound = 1; curRound <= 5; curRound++)
+//     {
+//         console.log(`round: ${curRound}`);
+//         playRound(getHumanChoice, getComputerChoice);
+//     }
+
+//     if (computerScore < humanScore) console.log(`You won! Computer Score: ${computerScore} and your score: ${humanScore}`);
+//     else if (computerScore > humanScore) console.log(`You lost! Computer Score: ${computerScore} and your score: ${humanScore}`);
+//     else console.log(`Draw! Computer Score: ${computerScore} and your score: ${humanScore}`)
+// }
+
+function playRound(humanChoice, computerChoice)
+{
+    let hc = humanChoice;
+    let cc = computerChoice();
+    
+    if(hc === cc)
     {
-        console.log(`round: ${curRound}`);
-        playRound(getHumanChoice, getComputerChoice);
+        console.log(`Draw! computer: ${cc} and your choice: ${hc}`);
     }
-
-    if (computerScore < humanScore) console.log(`You won! Computer Score: ${computerScore} and your score: ${humanScore}`);
-    else if (computerScore > humanScore) console.log(`You lost! Computer Score: ${computerScore} and your score: ${humanScore}`);
-    else console.log(`Draw! Computer Score: ${computerScore} and your score: ${humanScore}`)
+    else if((hc === choices[0] || hc === choices[2]) && (cc === choices[0] || cc === choices[2]))
+    {
+        if (choices.indexOf(hc) > choices.indexOf(cc))
+        {
+            console.log(`You lose! ${cc} beats ${hc}.`);
+            computerScore += 1;
+        }else
+        {
+            console.log(`You win! ${hc} beats ${cc}`);
+            humanScore += 1;
+        }
+    } 
+    else
+    {
+        if (choices.indexOf(hc) < choices.indexOf(cc))
+        {
+            console.log(`You lose! ${cc} beats ${hc}.`);
+            computerScore += 1;
+        }else
+        {
+            console.log(`You win! ${hc} beats ${cc}`);
+            humanScore += 1;
+        }
+    }
 }
 
-playGame();
+let rock_b = document.querySelector("#rock");
+let paper_b = document.querySelector("#paper");
+let scissor_b = document.querySelector("#scissor");
+let score_count = document.querySelector("#score");
+
+rock_b.addEventListener("click", () => {
+    playRound(choices[0], getComputerChoice);
+});
+
+paper_b.addEventListener("click", () => {
+    playRound(choices[1], getComputerChoice);
+});
+
+scissor_b.addEventListener("click", () => {
+    playRound(choices[2], getComputerChoice);
+});

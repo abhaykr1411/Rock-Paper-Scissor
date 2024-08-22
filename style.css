@@ -1,0 +1,49 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    font-family: 'Popping', sans-serif;
+    box-sizing: border-box;
+}
+
+.container
+{
+    width: 90%;
+    max-width: 470px;
+    background: linear-gradient(135deg, yellow, orange);
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.player-view
+{
+    height: 100px;
+    max-width: 130px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.player-view .display
+{
+    border-radius: 20px 20px 0px 0px;
+    border: 10px solid red;
+    height: 100px;
+    width: 100px;
+}
+
+.player-view button
+{
+    
+}
+
+.cpu-view
+{
+    background-color: blue;
+    height: 100px;
+    width: 100px;
+}
