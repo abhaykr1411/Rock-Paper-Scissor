@@ -1,4 +1,4 @@
-const choices = ["rock", "paper", "scissor"];
+const choices = ["images/Rock.png", "images/paper.png", "images/scissors.png"];
 let humanScore = 0;
 let computerScore = 0;
 
@@ -44,16 +44,22 @@ function playRound(humanChoice, computerChoice)
     
     if(hc === cc)
     {
+        p_status.textContent = "Draw!";
+        c_status.textContent = "Draw!";
         console.log(`Draw! computer: ${cc} and your choice: ${hc}`);
     }
     else if((hc === choices[0] || hc === choices[2]) && (cc === choices[0] || cc === choices[2]))
     {
         if (choices.indexOf(hc) > choices.indexOf(cc))
         {
+            p_status.textContent = "Lose!"
+            c_status.textContent = "Wins!"; 
             console.log(`You lose! ${cc} beats ${hc}.`);
             computerScore += 1;
         }else
         {
+            p_status.textContent = "Wins!"
+            c_status.textContent = "Lose!"; 
             console.log(`You win! ${hc} beats ${cc}`);
             humanScore += 1;
         }
@@ -62,23 +68,37 @@ function playRound(humanChoice, computerChoice)
     {
         if (choices.indexOf(hc) < choices.indexOf(cc))
         {
+            p_status.textContent = "Lose!"
+            c_status.textContent = "Wins!"; 
             console.log(`You lose! ${cc} beats ${hc}.`);
             computerScore += 1;
         }else
         {
+            p_status.textContent = "Wins!"
+            c_status.textContent = "Lose!";
             console.log(`You win! ${hc} beats ${cc}`);
             humanScore += 1;
         }
     }
     your_score.textContent = humanScore;
-    cpu_score.textContent = computerChoice; 
+    cpu_score.textContent = computerScore;
+    
+    p_choice.src = hc;
+    c_choice.src = cc;
 }
 
 let rock_b = document.querySelector("#rock");
 let paper_b = document.querySelector("#paper");
-let scissor_b = document.querySelector("#scissor");
+let scissor_b = document.querySelector("#scissors");
+
 let your_score = document.querySelector("#p-score");
 let cpu_score = document.querySelector("#c-score");
+
+let p_choice = document.querySelector(".player-view .display img");
+let c_choice = document.querySelector(".cpu-view .display img");
+
+let p_status = document.querySelector(".player-view .status");
+let c_status = document.querySelector(".cpu-view .status");
 
 rock_b.addEventListener("click", () => {
     playRound(choices[0], getComputerChoice);
