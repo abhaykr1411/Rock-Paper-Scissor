@@ -85,6 +85,17 @@ function playRound(humanChoice, computerChoice)
     
     p_choice.src = hc;
     c_choice.src = cc;
+
+    if(humanScore >= 5)
+    {
+        localStorage.setItem('winner', 'player');
+        window.location.href = "endscreen.html";
+    }
+    else if(computerScore >= 5)
+    {
+        localStorage.setItem('winner', 'computer');
+        window.location.href = "endscreen.html"; 
+    }
 }
 
 let rock_b = document.querySelector("#rock");

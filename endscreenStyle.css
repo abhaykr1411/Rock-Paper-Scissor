@@ -1,0 +1,34 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    font-family: 'Popping', sans-serif;
+    box-sizing: border-box;
+}
+
+.container
+{
+    width: 80%;
+    max-width: 660px;
+    background: linear-gradient(135deg, yellow, orange);
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 40px 35px;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container img
+{
+    display: flex;    
+    width: 200px;
+}
+
+.container button
+{
+    width: 100px;
+    height: 25px;
+    background: linear-gradient(45deg, rgb(237, 146, 66), rgb(255, 85, 0));
+}
