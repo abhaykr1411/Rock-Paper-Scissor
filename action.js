@@ -70,12 +70,15 @@ function playRound(humanChoice, computerChoice)
             humanScore += 1;
         }
     }
+    your_score.textContent = humanScore;
+    cpu_score.textContent = computerChoice; 
 }
 
 let rock_b = document.querySelector("#rock");
 let paper_b = document.querySelector("#paper");
 let scissor_b = document.querySelector("#scissor");
-let score_count = document.querySelector("#score");
+let your_score = document.querySelector("#p-score");
+let cpu_score = document.querySelector("#c-score");
 
 rock_b.addEventListener("click", () => {
     playRound(choices[0], getComputerChoice);

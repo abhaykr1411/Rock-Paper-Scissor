@@ -8,8 +8,8 @@
 
 .container
 {
-    width: 90%;
-    max-width: 470px;
+    width: 80%;
+    max-width: 660px;
     background: linear-gradient(135deg, yellow, orange);
     margin: 100px auto 0;
     border-radius: 20px;
@@ -17,33 +17,69 @@
     text-align: center;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .player-view
 {
-    height: 100px;
     max-width: 130px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .player-view .display
 {
     border-radius: 20px 20px 0px 0px;
-    border: 10px solid red;
-    height: 100px;
-    width: 100px;
+    border: 8px solid #b8ceff;
+    background: linear-gradient(135deg, #d0dfff, #b3cbff); 
 }
 
-.player-view button
+.player-view .display img
 {
+    width: 150px;
+}
+
+.player-view .buttons
+{
+    display: flex;
+    justify-content: center;
+}
+
+.player-view .buttons button
+{
+    background-color: #d0dfff;
+}
+
+.player-view .buttons button img
+{
+    height: 53px;
+}
+
+/*----------------------------------------*/
+.versus img
+{
+    width: 100px;
     
 }
 
-.cpu-view
+.cpu-view .display
 {
-    background-color: blue;
-    height: 100px;
-    width: 100px;
+    border-radius: 20px;
+    border: 8px solid #b8ceff;
+    background: linear-gradient(135deg, #d0dfff, #b3cbff);
+}
+
+.cpu-view .display img
+{
+    width: 150px;
+}
+
+.cpu-view .status,
+.player-view .status
+{
+    margin-top: 10px;
+    font-size: 30px;
+    color: rgb(255, 182, 46);
+    text-shadow: 2px 2px 4px black;
 }
