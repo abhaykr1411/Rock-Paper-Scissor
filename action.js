@@ -45,28 +45,29 @@ function playGame() {
         computerScore += 1;
       }
     }
-    console.log(`Current score: human = ${humanScore}, computer = ${computerScore}`);   
+    console.log(`Current score: human = ${humanScore}, computer = ${computerScore}`);
   }
 
-  for (let round = 0; round < 5; round++) {
-    let humanChoice = getHumanChoice();
-    let computerChoice = getComputerChoice();
+  
+  // for (let round = 0; round < 5; round++) {
+  //   let humanChoice = getHumanChoice();
+  //   let computerChoice = getComputerChoice();
 
-    playRound(humanChoice, computerChoice);
-    console.log("---------------------------------");
-  }
+  //   playRound(humanChoice, computerChoice);
+  //   console.log("---------------------------------");
+  // }
 
-  if (humanScore === computerScore) {
-    console.log("The end: Draw");
-  } else if (humanScore > computerScore) {
-    console.log(
-      `The End: You won!!, your Score ${humanScore} computer Score: ${computerScore}`
-    );
-  } else {
-    console.log(
-      `The End: you lost!!, your Score ${humanScore} computer Score: ${computerScore}`
-    );
-  }
+  // if (humanScore === computerScore) {
+  //   console.log("The end: Draw");
+  // } else if (humanScore > computerScore) {
+  //   console.log(
+  //     `The End: You won!!, your Score ${humanScore} computer Score: ${computerScore}`
+  //   );
+  // } else {
+  //   console.log(
+  //     `The End: you lost!!, your Score ${humanScore} computer Score: ${computerScore}`
+  //   );
+  // }
 }
 
 playGame();
