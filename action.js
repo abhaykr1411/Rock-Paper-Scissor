@@ -1,4 +1,7 @@
 const choice = ["rock", "paper", "scissor"];
+const rock_B = document.querySelector("#rock-btn");
+const paper_B = document.querySelector("#paper-btn");
+const scissor_B = document.querySelector("#scissor-btn");
 
 function getComputerChoice() {
   let randomIndex = Math.floor(Math.random() * choice.length);
@@ -13,7 +16,6 @@ function getHumanChoice() {
       "Oops! wrong input (rock/paper/scissor): "
     ).toLowerCase();
   }
-
   console.log(`Human choice is: ${humanChoice}`);
   return humanChoice;
 }
@@ -45,29 +47,35 @@ function playGame() {
         computerScore += 1;
       }
     }
-    console.log(`Current score: human = ${humanScore}, computer = ${computerScore}`);
+    console.log(
+      `Current score: human = ${humanScore}, computer = ${computerScore}`
+    );
+
+    console.log("---------------------------------");
+    if (humanScore >= 5 || computerScore >= 5) {
+      if (humanScore > computerScore) {
+        console.log(
+          `The End: You won!!, your Score ${humanScore} computer Score: ${computerScore}`
+        );
+      } else {
+        console.log(
+          `The End: you lost!!, your Score ${humanScore} computer Score: ${computerScore}`
+        );
+      }
+    }
   }
 
-  
-  // for (let round = 0; round < 5; round++) {
-  //   let humanChoice = getHumanChoice();
-  //   let computerChoice = getComputerChoice();
+  rock_B.addEventListener("click", (e) => {
+    playRound(choice[0], getComputerChoice());
+  });
 
-  //   playRound(humanChoice, computerChoice);
-  //   console.log("---------------------------------");
-  // }
+  paper_B.addEventListener("click", (e) => {
+    playRound(choice[1], getComputerChoice());
+  });
 
-  // if (humanScore === computerScore) {
-  //   console.log("The end: Draw");
-  // } else if (humanScore > computerScore) {
-  //   console.log(
-  //     `The End: You won!!, your Score ${humanScore} computer Score: ${computerScore}`
-  //   );
-  // } else {
-  //   console.log(
-  //     `The End: you lost!!, your Score ${humanScore} computer Score: ${computerScore}`
-  //   );
-  // }
+  scissor_B.addEventListener("click", (e) => {
+    playRound(choice[2], getComputerChoice());
+  });
 }
 
 playGame();
